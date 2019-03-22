@@ -1,0 +1,41 @@
+.switch-container {
+    width: 75px;
+    height: auto;
+    text-align: center;
+    h2 {
+        font-size: 17px;
+        margin: 0;
+        text-transform: uppercase;
+    }
+    .switch {
+        width: 70px;
+        height: 30px;
+        background: black;
+        border: 1px solid black;
+        padding: 3px 3px;
+        margin: 0 auto;
+        position: relative;
+        .on,
+        .off {
+            position: absolute;
+            color: gold;
+            z-index: 0;
+        }
+        .on {
+            left: 5px;
+        }
+        .off {
+            right: 3px;
+        }
+        .box {
+            position: relative;
+            border: 1px solid gold;
+            background: gold;
+            height: 100%;
+            width: 50%;
+            cursor: pointer;
+            float: right;
+            z-index: 1;
+        }
+    }
+}

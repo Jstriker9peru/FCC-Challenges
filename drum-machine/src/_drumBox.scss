@@ -1,0 +1,50 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    .drum-container {
+        border: 2px solid rgb(50,50,100);
+        width: 650px;
+        height: 350px;
+        background: lightblue;
+        display: flex;
+        align-items: center;
+        .key-container {
+            margin-left: 20px;
+            width: 300px;
+            height: 280px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .controls-container {
+            width: 300px;
+            height: 280px;
+            .switches {
+                width: 100%;
+                height: auto;
+                display: flex;
+                justify-content: space-around;
+            }
+            .display {
+                margin-top: 40px;
+                height: 40px;
+                width: 80%;
+                margin: 40px auto 0;
+                background: white;
+                font-size: 20px;
+                padding: 5px;
+                color: #333;
+                font-weight: 600;
+                border: 2px solid black;
+                text-transform: uppercase;
+            }
+            .slider {
+                margin-top: 60px;
+                input {
+                    width: 200px;
+                }
+            }
+        }
+    }
+}

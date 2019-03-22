@@ -1,0 +1,20 @@
+.key {
+    width: 80px;
+    height: 80px;
+    margin: 5px;
+    background: grey;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:hover {
+        background: gold;
+        h1 {
+            color: black;
+        }
+    }
+    h1 {
+        color: white;
+    }
+    cursor: pointer;
+}
