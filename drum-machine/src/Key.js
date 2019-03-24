@@ -21,6 +21,7 @@ export default class Key extends Component {
 
         if (e.keyCode === this.props.value.charCodeAt() && this.props.power) {
             document.getElementById(this.props.id).style.background = "gold";
+            document.getElementById(this.props.id).style.boxShadow = "none";
             document.getElementsByClassName('ltr')[this.props.index].style.color = "black";
             this.audio.play();
             this.audio.currentTime = 0;
@@ -29,8 +30,10 @@ export default class Key extends Component {
     }
 
     handleKeyUp = e => {
+        let boxShadow = "-2px 11px 16px -4px rgba(0,0,0,0.75)"
         if (e.keyCode === this.props.value.charCodeAt() && this.props.power) {
             document.getElementById(this.props.id).style.background = "grey";
+            document.getElementById(this.props.id).style.boxShadow = boxShadow;
             document.getElementsByClassName('ltr')[this.props.index].style.color = "white";
            
         }
