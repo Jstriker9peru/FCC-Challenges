@@ -8,15 +8,15 @@ export default class DrumBox extends Component {
     this.state = {
       input: '',
       letters: [
-        {id: 'snare', index: '1', letters: 'Q', src: 'https://www.myinstants.com/media/sounds/snare.mp3'},
-        {id: 'bass 1', index: '2', letters: 'W', src: 'https://www.myinstants.com/media/sounds/bass-drum.mp3'},
-        {id: 'bongo', index: '3', letters: 'E', src: 'http://tipiwiki.free.fr/snd/Percussion(4e)2.wav'},
-        {id: 'tom tom', index: '4', letters: 'A', src: 'http://www.wavlist.com/soundfx/027/tomtom_low.wav'},
-        {id: 'bass 3', index: '5', letters: 'S', src: 'http://www.wavlist.com/soundfx/028/bass_guitar3.wav'},
-        {id: 'shotgun', index: '6', letters: 'D', src: 'http://david.guerrero.free.fr/Effects/ShotgunReload.wav'},
-        {id: 'high hat', index: '7', letters: 'Z', src: 'http://www.denhaku.com/r_box/tr707/closed.wav'},
-        {id: 'drum hit', index: '8', letters: 'X', src: 'http://www.wavlist.com/soundfx/027/drum_stick.wav'},
-        {id: 'laser', index: '9', letters: 'C', src: 'http://www.sa-matra.net/sounds/starcontrol/Umgah-Backzip.wav'}
+        {id: 'snare', index: '0', letters: 'Q', src: 'https://www.myinstants.com/media/sounds/snare.mp3'},
+        {id: 'bass-1', index: '1', letters: 'W', src: 'https://www.myinstants.com/media/sounds/bass-drum.mp3'},
+        {id: 'bongo', index: '2', letters: 'E', src: 'http://tipiwiki.free.fr/snd/Percussion(4e)2.wav'},
+        {id: 'tom-tom', index: '3', letters: 'A', src: 'http://www.wavlist.com/soundfx/027/tomtom_low.wav'},
+        {id: 'bass-3', index: '4', letters: 'S', src: 'http://www.wavlist.com/soundfx/028/bass_guitar3.wav'},
+        {id: 'shotgun', index: '5', letters: 'D', src: 'http://david.guerrero.free.fr/Effects/ShotgunReload.wav'},
+        {id: 'high-hat', index: '6', letters: 'Z', src: 'http://www.denhaku.com/r_box/tr707/closed.wav'},
+        {id: 'drum-hit', index: '7', letters: 'X', src: 'http://www.wavlist.com/soundfx/027/drum_stick.wav'},
+        {id: 'laser', index: '8', letters: 'C', src: 'http://www.sa-matra.net/sounds/starcontrol/Umgah-Backzip.wav'}
       ],
       // letters: ['Q', 'W', 'E', 'A', 'S', 'D', 'Z', 'X', 'C'],
       switches: {
