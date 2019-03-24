@@ -7,6 +7,7 @@ export default class DrumBox extends Component {
     super(props)
     this.state = {
       input: '',
+      volume: "50",
       letters: [
         {id: 'snare', index: '0', letters: 'Q', src: 'https://www.myinstants.com/media/sounds/snare.mp3'},
         {id: 'bass-1', index: '1', letters: 'W', src: 'https://www.myinstants.com/media/sounds/bass-drum.mp3'},
@@ -32,12 +33,22 @@ export default class DrumBox extends Component {
     }
     this.changeDisplay = this.changeDisplay.bind(this);
     this.alternateSwitch = this.alternateSwitch.bind(this);
+    this.changeVolume = this.changeVolume.bind(this);
   }
 
   
 
   changeDisplay(input) {
     this.setState({ input });
+  }
+
+  changeVolume() {
+    let vol = document.getElementById('volume').value;
+    this.setState({
+      volume: vol,
+      input: 'Volume: ' + vol 
+    })
+    
   }
   
 
@@ -75,6 +86,7 @@ export default class DrumBox extends Component {
             value={item.letters}
             id={item.id}
             src={item.src}
+            globalState={this.state}
             changeDisplay={this.changeDisplay}
             power={this.state.switches.Power.on}
             index={item.index}
@@ -92,7 +104,7 @@ export default class DrumBox extends Component {
             </div>
             <div className="display">{this.state.input}</div>
             <div className="slider">
-                <input type="range" min="0" max="100" step="1" />
+                <input id="volume" type="range" min="0" max="100" step="1" onChange={this.changeVolume} />
             </div>
           </div>
         </div>

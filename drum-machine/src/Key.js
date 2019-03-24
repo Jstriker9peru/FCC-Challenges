@@ -23,6 +23,7 @@ export default class Key extends Component {
             document.getElementById(this.props.id).style.background = "gold";
             document.getElementById(this.props.id).style.boxShadow = "none";
             document.getElementsByClassName('ltr')[this.props.index].style.color = "black";
+            this.audio.volume = (this.props.globalState.volume / 100);
             this.audio.play();
             this.audio.currentTime = 0;
             this.props.changeDisplay(this.props.id)
@@ -41,6 +42,7 @@ export default class Key extends Component {
 
     handleClick = () => {
         if (this.props.power) {
+            this.audio.volume = (this.props.globalState.volume / 100);
             this.audio.play();
             this.audio.currentTime = 0;
             this.props.changeDisplay(this.props.id);
@@ -49,7 +51,7 @@ export default class Key extends Component {
 
     render() {
         return (
-            <div className="key" id={this.props.id} onClick={this.handleClicdk} onKeyDown={e => this.handleKeyDown(e)} onKeyUp={e => this.handleKeyUp(e)} tabIndex="0" ref={el => this.key = el} >
+            <div className="key" id={this.props.id} onClick={this.handleClick} onKeyDown={e => this.handleKeyDown(e)} onKeyUp={e => this.handleKeyUp(e)} tabIndex="0" ref={el => this.key = el} >
                 <h1 className="ltr">{this.props.value}</h1>
                 <audio
                     className="clip"
