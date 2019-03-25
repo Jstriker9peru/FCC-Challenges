@@ -9,8 +9,8 @@ export default class Button extends Component {
   }  
   render() {
     return (
-      <button id={this.props.buttonId}>
-        <div className="name">{this.props.buttonName}</div>
+      <button id={this.props.buttonId} onClick={() => this.props.handleClick(this.props.buttonName)}>
+        <div className="name" >{this.props.buttonName}</div>
       </button>
     )
   }

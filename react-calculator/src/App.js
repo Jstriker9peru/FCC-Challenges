@@ -76,9 +76,70 @@ class App extends Component {
                 name: '.',
             }
         ],
-        logic: '123',
-        output: '456'
+        logic: '',
+        output: '0'
     }
+    this.handleClick = this.handleClick.bind(this);
+    this.evaluator = this.evaluator.bind(this);
+  }
+
+  handleClick(name) {
+    let lowerName = name.toLowerCase();
+    let { output, logic } = this.state;
+    switch(name) {
+      case 'AC':
+        this.setState({
+          logic: '',
+          output: '0'
+        });
+        break;
+      case '+':
+      case '-':
+      case '/':
+      case 'X':
+        let operators = ['+', '-', '/', 'x']
+        if (operators.includes(logic[(logic.length - 1)])) {
+          let newLogic = logic.slice(0, (logic.length - 1));
+          this.setState({
+            logic: newLogic + lowerName,
+            output: lowerName
+          });
+        } else {
+          this.setState({
+            logic: logic + lowerName,
+            output: lowerName
+          });
+        }
+        break;
+      case '=':
+        this.setState({
+          output: this.evaluator()
+        });
+        break;    
+      default:
+        let operator = ['+', '-', '/', 'x'];
+        if (output === '0') {
+          this.setState({
+            logic: lowerName,
+            output: lowerName  
+          })
+        } else if (operator.includes(logic[(logic.length - 1)])) {
+          this.setState({
+            logic: logic + lowerName,
+            output: lowerName
+          })
+
+        } else {
+          this.setState({
+            logic: logic + lowerName,
+            output: output + lowerName
+          })
+        }
+    } 
+  }
+
+  evaluator() {
+    return '12324';
   }
 
   render() {
@@ -91,12 +152,13 @@ class App extends Component {
               <div className="output">{this.state.output}</div>
             </div>
             <div className="button-container">
-              {this.state.buttons.map((el) => 
+              {this.state.buttons.map((el, index) => 
               <Button
+                key={index}
                 buttonName={el.name}
                 buttonId={el.id}
-              />
-               )}
+                handleClick={this.handleClick}
+              />)}
             </div>
           </div>
         </div>
