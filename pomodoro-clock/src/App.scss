@@ -1,13 +1,18 @@
 * {
   box-sizing: border-box;
-}
-
-body,
-html {
   padding: 0;
   margin: 0;
 }
 
+@font-face {
+  font-family: "Digital";
+  src: url(./fonts/digital-7.ttf);
+}
+
+@font-face {
+  font-family: "Caviar";
+  src: url(./fonts/CaviarDreams.ttf);
+}
 
 .App {
   width: 100%;
@@ -16,14 +21,109 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: "Caviar"; 
 }
 
 .clock-container {
   width: 550px;
-  height: 450px;
+  height: 460px;
   background: black;
   border-radius: 5px;
   color: white;
+  padding: 5px;
+  .row1,
+  .row2,
+  .row3,
+  .row4 {
+    width: 100%;
+    height: 112px;
+  }
+  .row1 {
+    background: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h1 {
+      font-size: 40px;
+      font-weight: 800;
+    }
+  }
+  .row2 {
+    background: lightcoral;
+    display: flex;
+    .box1,
+    .box2 {
+      width: 50%;
+      padding: 10px;
+      border: 1px solid black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      #break-label,
+      #session-label {
+        height: 50px;
+      }
+      #break-increment,
+      #break-decrement,
+      #session-increment,
+      #session-decrement {
+        cursor: pointer;
+      }
+      .change {
+        display: flex;
+        width: 30%;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+  }
+  .row3 {
+    background: lightseagreen;
+    .timer-container {
+      margin: 0 auto;
+      width: 40%;
+      text-align: center;
+      background: yellow;
+      border-radius: 10px;
+      color: black;
+      border: 2px solid black;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      .top {
+        margin-top: 3px;
+        margin-bottom: 10px;
+      }
+      #time-left {
+        font-family: 'Digital';
+        color: black;
+        font-size: 45px;
+        .colon {
+          margin: 0 6px;
+        }
+      }
+    }
+  }
+  .row4 {
+    background: lightblue;
+    display: flex;
+    align-items: center;
+    .icon-container {
+      width: 50%;
+      height: 50px;
+      margin: 0 auto;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .fas {
+        color: black;
+        font-size: 40px;
+        margin: 0 10px;
+        cursor: pointer;
+      }
+    }
+  }
 }
 
 
