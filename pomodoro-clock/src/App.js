@@ -1,25 +1,42 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <div className="clock-container">
+          <div><h1>Pomodoro Clock</h1></div>
+          <div className="row">
+            <div className="box1">
+              <h2>Break Length</h2>
+              <div>
+                <i class="fas fa-arrow-down"></i>
+                <h3>5</h3>
+                <i class="fas fa-arrow-up"></i>
+              </div>
+            </div>
+            <div className="box2">
+              <h2>Session Length</h2>
+              <div>
+                <i class="fas fa-arrow-down"></i>
+                <h3>25</h3>
+                <i class="fas fa-arrow-up"></i>
+              </div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="timer-container">
+              <div><h2>Break</h2></div>
+              <div><h2>03:58</h2></div>
+            </div>
+          </div>
+          <div className="row">
+            <i class="fas fa-play-circle"></i>
+            <i class="fas fa-pause-circle"></i>
+            <i class="fas fa-sync-alt"></i>
+          </div>
+        </div>
       </div>
     );
   }
