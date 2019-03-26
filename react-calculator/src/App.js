@@ -131,7 +131,7 @@ class App extends Component {
         break;    
       default:
         let operator = ['+', '-', '/', '*'];
-        if (output === '0') {
+        if (output === '0' && logic.length <= 1) {
           this.setState({
             logic: lowerName,
             output: lowerName  
