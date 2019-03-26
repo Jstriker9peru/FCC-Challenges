@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.scss';
 import Button from './Button.js';
 
+/* eslint no-eval: 0 */
+
 class App extends Component {
   constructor(props) {
     super(props)
@@ -17,7 +19,7 @@ class App extends Component {
             },
             {
                 id: 'button3',
-                name: 'X',
+                name: '*',
             },
             {
                 id: 'button4',
@@ -96,28 +98,39 @@ class App extends Component {
       case '+':
       case '-':
       case '/':
-      case 'X':
-        let operators = ['+', '-', '/', 'x']
+      case '*':
+        let operators = ['+', '-', '/', '*'];
         if (operators.includes(logic[(logic.length - 1)])) {
           let newLogic = logic.slice(0, (logic.length - 1));
           this.setState({
-            logic: newLogic + lowerName,
+            logic: newLogic + ' ' + lowerName,
             output: lowerName
           });
+        } else if (logic.includes('=')) {
+          let afterLogic = logic.split(' ');
+          console.log('this is it');
+          console.log(afterLogic);
+
+          this.setState({
+            logic: afterLogic[afterLogic.length - 1]  + ' ' + lowerName,
+            output: lowerName
+          });
+
         } else {
           this.setState({
-            logic: logic + lowerName,
+            logic: logic + ' ' + lowerName,
             output: lowerName
           });
         }
         break;
       case '=':
         this.setState({
+          logic: logic + ' ' + lowerName + ' ' + this.evaluator(),
           output: this.evaluator()
         });
         break;    
       default:
-        let operator = ['+', '-', '/', 'x'];
+        let operator = ['+', '-', '/', '*'];
         if (output === '0') {
           this.setState({
             logic: lowerName,
@@ -125,7 +138,7 @@ class App extends Component {
           })
         } else if (operator.includes(logic[(logic.length - 1)])) {
           this.setState({
-            logic: logic + lowerName,
+            logic: logic + ' ' + lowerName,
             output: lowerName
           })
 
@@ -139,7 +152,10 @@ class App extends Component {
   }
 
   evaluator() {
-    return '12324';
+    let newArray = this.state.logic.split(' ');
+    console.log(newArray);
+    let output = eval(this.state.logic);
+    return output;
   }
 
   render() {
