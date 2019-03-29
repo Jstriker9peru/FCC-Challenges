@@ -7,8 +7,8 @@ class App extends Component {
     this.state = {
       timerStarted: false,
       timerStopped: true,
-      sessionOn: false,
-      breakOn: true,
+      sessionOn: true,
+      breakOn: false,
       minutes: 0,
       seconds: 0,
       breakMin: 5,
@@ -25,6 +25,18 @@ class App extends Component {
   }
   componentWillMount() {
     this.handleTimerRestart();
+    
+  }
+
+  componentDidMount() {
+    let sessionBox = document.getElementsByClassName('box2');
+    let breakBox = document.getElementsByClassName('box1');
+
+    this.state.sessionOn ? 
+    sessionBox[0].style.border = "3px solid gold" : sessionBox[0].style.border = '1px solid black';
+
+    this.state.breakOn ?
+    breakBox[0].style.border = "3px solid gold" : breakBox[0].style.border = '1px solid black';
   }
 
   handleSwitch() {    
@@ -36,11 +48,14 @@ class App extends Component {
     }));
     setTimeout(() => {
       this.handleTimerRestart();
+      let sessionBox = document.getElementsByClassName('box2');
+      let breakBox = document.getElementsByClassName('box1');
+      this.state.sessionOn ? sessionBox[0].style.border = "3px solid gold" : sessionBox[0].style.border = '1px solid black';
+      this.state.breakOn ? breakBox[0].style.border = "3px solid gold" : breakBox[0].style.border = '1px solid black';
     }, 1);
 
-  }
 
-  handleSwitchButton() {}
+  }
 
   handleTimerStart() {
     if (this.state.sessionOn) {
@@ -66,8 +81,12 @@ class App extends Component {
             }));
             if (this.state.minutes === 0 &&
               this.state.seconds === 0) {
+                this.audioBeep.play();
+
                 clearInterval(this.timer);
                 setTimeout(() => {
+                  this.audioBeep.pause();
+                  this.audioBeep.load();
                   this.handleSwitch();      
                   this.handleTimerStart();
                 }, 1000);
@@ -89,6 +108,12 @@ class App extends Component {
   }
 
   handleTimerRestart() {
+    let counter = 0;
+    if (counter > 0) {
+      this.audioBeep.pause();
+      this.audioBeep.load();
+    }
+    counter += 1;
     if (this.state.sessionOn) {
 
       this.setState({
@@ -184,8 +209,6 @@ class App extends Component {
     }
   }
 
-
-
   render() {
     return (
       <div className="App">
@@ -253,6 +276,11 @@ class App extends Component {
               <span title="switch">
                 <i className="fas fa-exchange-alt" onClick={this.handleSwitch}></i>
               </span>
+              <audio 
+              id="beep"
+              preload="auto" 
+              src="https://goo.gl/65cBl1"
+              ref={(audio) => { this.audioBeep = audio; }} />
               
             </div>
           </div>

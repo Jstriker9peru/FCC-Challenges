@@ -121,6 +121,9 @@
         font-size: 40px;
         margin: 0 10px;
         cursor: pointer;
+        &:hover {
+          color: rgb(98, 98, 192);
+        }
       }
     }
   }
